@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>HManuel · Administración e Innovación Digital</title>
+  <meta name="description" content="Antes de crecer, hay que ordenar. Acompañamos a negocios y emprendedores a construir estructura real y herramientas digitales accesibles en CDMX.">
+  <!-- Google Fonts: Inter (sans-serif limpia y profesional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --verde-hmanuel: #1D9E75;
+      --verde-claro-bg: #E1F5EE;
+      --verde-oscuro-texto: #085041;
+      --casi-negro: #1A1F2C;
+      --gris-texto: #5C6273;
+      --gris-borde: #E5E7EB;
+      --gris-fondo: #F8F9FA;
+      --blanco: #FFFFFF;
+      --border-radius-md: 12px;
+      --border-radius-lg: 20px;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--blanco);
+      color: var(--casi-negro);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Tipografía y utilidades */
+    h1, h2, h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      color: var(--casi-negro);
+    }
+
+    .section-subhead {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--verde-hmanuel);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--verde-hmanuel);
+      color: white;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .btn-primary:hover {
+      background-color: #0f7b5a;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--verde-hmanuel);
+      color: var(--verde-hmanuel);
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--verde-claro-bg);
+    }
+
+    /* HEADER */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 0.5px solid var(--gris-borde);
+      margin-bottom: 2rem;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--casi-negro);
+    }
+    .logo span {
+      color: var(--verde-hmanuel);
+      font-weight: 700;
+    }
+    .logo p {
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      color: var(--gris-texto);
+      margin-top: 0.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--casi-negro);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--verde-hmanuel);
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 0 3rem;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--verde-hmanuel);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--casi-negro);
+    }
+    .hero-lead {
+      font-size: 1.1rem;
+      color: var(--gris-texto);
+      margin-bottom: 1.8rem;
+      max-width: 90%;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--gris-texto);
+    }
+    .hero-visual {
+      flex: 0.9;
+      background: var(--gris-fondo);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      border: 0.5px solid var(--gris-borde);
+      text-align: center;
+    }
+    .quote-visual {
+      border-left: 3px solid var(--verde-hmanuel);
+      padding-left: 1rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--casi-negro);
+    }
+
+    /* Sección genérica */
+    .section {
+      padding: 4rem 0;
+      border-bottom: 0.5px solid var(--gris-borde);
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    /* Grids */
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card {
+      background: var(--blanco);
+      border: 0.5px solid var(--gris-borde);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      transition: all 0.2s;
+    }
+    .card:hover {
+      border-color: var(--verde-hmanuel);
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--casi-negro);
+    }
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--gris-texto);
+      line-height: 1.5;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .pill {
+      background: var(--gris-fondo);
+      padding: 0.3rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--casi-negro);
+      border: 0.5px solid var(--gris-borde);
+    }
+
+    /* Diferencial cita */
+    .diferencial-box {
+      background: var(--verde-claro-bg);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-left: 4px solid var(--verde-hmanuel);
+    }
+
+    /* Precios (tarjetas) */
+    .price-card {
+      background: var(--blanco);
+      border: 1px solid var(--gris-borde);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      transition: 0.2s;
+      height: 100%;
+    }
+    .price-card.featured {
+      border: 1.5px solid var(--verde-hmanuel);
+      position: relative;
+      background: white;
+    }
+    .price-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .price-amount {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--verde-oscuro-texto);
+      margin: 0.5rem 0;
+    }
+    .price-desc {
+      font-size: 0.85rem;
+      color: var(--gris-texto);
+      margin: 1rem 0;
+      line-height: 1.5;
+    }
+    .badge {
+      background: var(--verde-claro-bg);
+      color: var(--verde-oscuro-texto);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      margin-left: 0.5rem;
+      font-weight: 500;
+    }
+    .flexible-note {
+      font-size: 0.75rem;
+      text-align: center;
+      margin-top: 1rem;
+      color: var(--gris-texto);
+    }
+
+    /* Testimonios */
+    .testimonial {
+      background: var(--gris-fondo);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--casi-negro);
+      color: white;
+      text-align: center;
+      border-radius: var(--border-radius-lg);
+      padding: 3rem 2rem;
+      margin-top: 2rem;
+    }
+    .cta h3 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .cta-btn {
+      background: var(--verde-hmanuel);
+      color: white;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gris-texto);
+      border-top: 0.5px solid var(--gris-borde);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        flex-direction: column;
+      }
+      .hero-lead {
+        max-width: 100%;
+      }
+      .section {
+        padding: 2.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header / navegación -->
+  <div class="navbar">
+    <div class="logo">
+      <h1><span>H</span>Manuel</h1>
+      <p>Administración e Innovación Digital</p>
+    </div>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#diferencial">Diferencial</a>
+      <a href="#precios">Precios</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+
+  <!-- Hero principal -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Antes de crecer, hay que ordenar</div>
+      <h1>Construye estructura real<br>para tu negocio</h1>
+      <div class="hero-lead">No necesitas ser experto en tecnología para modernizarte. Necesitas orden, procesos y herramientas claras. HManuel te acompaña a construir los cimientos que sostendrán tu crecimiento.</div>
+      <a href="#contacto" class="btn-primary">Empezar con diagnóstico →</a>
+      <div class="hero-stats">
+        <span>✓ PyMEs CDMX</span>
+        <span>✓ Estrategia administrativa</span>
+        <span>✓ Digitalización sin caos</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="quote-visual">
+        <p style="font-weight: 500;">“Kavak tenía el mejor posicionamiento de México. Y aún así está cayendo. El marketing no reemplaza la estructura. Nunca lo hará.”</p>
+        <p style="margin-top: 0.75rem; font-size: 0.8rem;">— HManuel, consultoría de fundamentos</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Servicios -->
+  <div id="servicios" class="section">
+    <span class="section-subhead">Portafolio</span>
+    <h2>Servicios que ordenan tu negocio</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">📋 Organización Administrativa</div>
+        <div class="card-text">Control básico, procesos documentados, estructura operativa y digitalización administrativa. El punto de partida de todo negocio sólido.</div>
+        <div class="pill-list"><span class="pill">Procesos</span><span class="pill">Control financiero</span><span class="pill">Sheets/Excel</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">🚀 Emprendimiento Digital</div>
+        <div class="card-text">Acompañamiento para negocios nuevos: presencia digital inicial, herramientas para operar y modelos básicos de venta online sin complejidades.</div>
+        <div class="pill-list"><span class="pill">Google Business</span><span class="pill">Catálogo digital</span><span class="pill">WhatsApp Business</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">🛒 Comercio Electrónico</div>
+        <div class="card-text">Migración al ecommerce, catálogos digitales, tiendas en línea, pagos digitales y flujo de pedidos. Diseñado para negocios tradicionales que dan el salto.</div>
+        <div class="pill-list"><span class="pill">Tienda online</span><span class="pill">Métodos de pago</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">⚙️ Automatización y Herramientas</div>
+        <div class="card-text">Formularios inteligentes, automatizaciones simples, IA práctica accesible para negocios reales. Tecnología útil, no ruido.</div>
+        <div class="pill-list"><span class="pill">Formularios</span><span class="pill">IA práctica</span><span class="pill">Flujos automáticos</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diferencial / Posicionamiento único -->
+  <div id="diferencial" class="section">
+    <span class="section-subhead">Lo que realmente importa</span>
+    <h2>No somos una agencia de marketing</h2>
+    <div class="diferencial-box">
+      <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.75rem;">“La parte humana y organizada de la transformación digital.”</p>
+      <p>Mientras otros venden crecimiento viral, HManuel construye estructura, procesos, control administrativo y jerarquías funcionales. Porque el posicionamiento más brillante no puede sostener indefinidamente un negocio sin cimientos.</p>
+    </div>
+    <div class="grid-2" style="margin-top: 1rem;">
+      <div class="card">
+        <div class="card-title">El mercado habla de...</div>
+        <div class="card-text">Marketing, IA, automatización, crecimiento viral, leads, embudos, posicionamiento en redes.</div>
+      </div>
+      <div class="card" style="border-color: var(--verde-hmanuel);">
+        <div class="card-title" style="color: var(--verde-oscuro-texto);">HManuel construye...</div>
+        <div class="card-text">Estructura. Procesos. Control administrativo. Jerarquías funcionales. Cultura organizacional. Fundamentos para crecer con orden.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Precios (fijo y flexible) -->
+  <div id="precios" class="section">
+    <span class="section-subhead">Inversión clara</span>
+    <h2>Precios que reflejan valor real</h2>
+    <div class="grid-3">
+      <div class="price-card">
+        <div class="price-name">Emprendedor en Orden</div>
+        <div class="price-amount">$2,500 MXN</div>
+        <div class="price-desc">Diagnóstico inicial, estructura administrativa básica, control de ingresos y gastos, plantilla de costos, guía herramientas digitales.</div>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Negocio Digital Básico</div>
+        <div class="price-amount">$5,500 MXN</div>
+        <div class="price-desc">WhatsApp Business, Google Business Profile, catálogo digital, redes sociales optimizadas, guía de atención digital.</div>
+      </div>
+      <div class="price-card featured">
+        <div class="price-name">Negocio en Orden Digital <span class="badge">Principal</span></div>
+        <div class="price-amount">$9,500 MXN</div>
+        <div class="price-desc">Diagnóstico completo, control en Sheets, organización de procesos, presencia digital, ruta a ecommerce + capacitación.</div>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Migración Inicial a Ecommerce</div>
+        <div class="price-amount">Desde $15,000 MXN</div>
+        <div class="price-desc">Revisión del modelo, estructura de catálogo, tienda en línea, métodos de pago, flujo de pedidos, capacitación operativa.</div>
+      </div>
+    </div>
+    <div style="background: var(--gris-fondo); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-top: 2rem;">
+      <p style="font-weight: 600; margin-bottom: 0.5rem;">Esquema flexible · Paga desde un mínimo garantizado</p>
+      <p style="font-size: 0.85rem; color: var(--gris-texto);">Para emprendedores en etapa inicial: diagnóstico desde $799 (sugerido $1500), Emprendedor en Orden flexible desde $2,000. Modelo con mínimo establecido, sin regateo, con honestidad. <strong>Política de anticipo:</strong> 50% / 50% o 100% en proyectos menores a $3,000 MXN.</p>
+    </div>
+  </div>
+
+  <!-- Filosofía + pilares -->
+  <div id="filosofia" class="section">
+    <span class="section-subhead">Nuestra tesis</span>
+    <h2>Administración tradicional + gestión moderna</h2>
+    <div class="grid-2" style="align-items: start;">
+      <div>
+        <p style="margin-bottom: 1rem;">Mezclar la administración tradicional con el modelo de gestión moderno no es un lujo. Es la diferencia entre un negocio que sobrevive y uno que desaparece en silencio después de su primer tropiezo.</p>
+        <div class="pill-list">
+          <span class="pill">Procesos documentados</span>
+          <span class="pill">Control financiero</span>
+          <span class="pill">Adaptabilidad</span>
+          <span class="pill">Herramientas digitales</span>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="background: var(--verde-claro-bg);">
+          <div class="card-title">Pilares HManuel</div>
+          <div class="card-text">
+            <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+              <li>✓ Un negocio organizado tiene más posibilidades de sobrevivir.</li>
+              <li>✓ La tecnología debe facilitar el trabajo, no complicarlo.</li>
+              <li>✓ No necesitas ser experto digital para modernizarte.</li>
+              <li>✓ Administrar bien también es innovar.</li>
+              <li>✓ Vender sin estructura es construir sobre hielo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonios / casos (placeholders alineados a la marca) -->
+  <div class="section">
+    <span class="section-subhead">Casos reales</span>
+    <h2>Negocios que están ordenando su futuro</h2>
+    <div class="grid-3">
+      <div class="testimonial">
+        <p style="font-style: italic; margin-bottom: 1rem;">“Llegamos con ventas decentes pero un caos administrativo total. HManuel nos ayudó a documentar procesos y tener control de gastos. Hoy operamos con orden, y ya estamos planeando el ecommerce.”</p>
+        <p style="font-weight: 600;">— Sandra M. · Dueña de cafetería, CDMX</p>
+      </div>
+      <div class="testimonial">
+        <p style="font-style: italic; margin-bottom: 1rem;">“Antes de HManuel no sabía ni cuánto ganaba realmente. Con el diagnóstico y el paquete ‘Negocio en Orden Digital’ ahora tengo claras mis finanzas y mi presencia digital profesional.”</p>
+        <p style="font-weight: 600;">— Ricardo T. · Emprendedor de moda</p>
+      </div>
+      <div class="testimonial">
+        <p style="font-style: italic; margin-bottom: 1rem;">“Creíamos que necesitábamos publicidad, pero el problema era la estructura. HManuel nos hizo ver que primero hay que ordenar. Hoy el equipo sabe sus responsabilidades y el negocio respira.”</p>
+        <p style="font-weight: 600;">— Laura V. · Startup de servicios</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA + Contacto -->
+  <div id="contacto" class="cta">
+    <h3>Deja de construir sobre hielo</h3>
+    <p style="max-width: 600px; margin: 0 auto 1.8rem auto; opacity: 0.85;">Da el primer paso hacia un negocio organizado, digital y preparado para crecer. Agenda tu diagnóstico inicial de 30 minutos.</p>
+    <a href="#" class="btn-primary cta-btn" style="background: white; color: var(--casi-negro);">WhatsApp: 55 1234 5678</a>
+    <p style="margin-top: 1.5rem; font-size: 0.7rem;">o escríbenos a contacto@hmanuel.mx · CDMX y Zona Metropolitana</p>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <p>© 2025 HManuel · Administración e Innovación Digital · “Antes de crecer, hay que ordenar”</p>
+    <p style="margin-top: 0.5rem;">Consultoría de fundamentos empresariales con visión digital · Hecho en México</p>
+  </footer>
+</div>
+
+<script>
+  // Smooth scroll para los enlaces internos
+  document.querySelectorAll('.nav-links a, .hero-content .btn-primary, .cta .btn-primary').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+  // Botón "Empezar con diagnóstico" también lleva a contacto
+  document.querySelector('.hero-content .btn-primary')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    const contactSection = document.querySelector('#contacto');
+    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
