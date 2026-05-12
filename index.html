@@ -1,0 +1,730 @@
+<!DOCTYPE html><html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HManuel · Administración e Innovación Digital</title>
+  <meta
+    name="description"
+    content="Consultoría para negocios que necesitan orden, estructura y herramientas digitales reales para crecer con claridad."
+  />  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  <style>
+    :root {
+      --green: #1D9E75;
+      --green-dark: #085041;
+      --green-soft: #E1F5EE;
+      --text: #1A1F2C;
+      --text-soft: #5C6273;
+      --border: #E5E7EB;
+      --bg-soft: #F8F9FA;
+      --white: #FFFFFF;
+      --shadow: 0 10px 30px rgba(0,0,0,0.04);
+      --radius: 22px;
+      --container: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1,h2,h3 {
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+      font-weight: 650;
+    }
+
+    p {
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    /* NAV */
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid rgba(229,231,235,.7);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, var(--green), var(--green-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-text h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .logo-text span {
+      color: var(--green);
+    }
+
+    .logo-text p {
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: .15rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: .92rem;
+      font-weight: 500;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .95rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: .2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: .95rem;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #178562;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 6rem 0 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-lead {
+      font-size: 1.2rem;
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .point {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      padding: .75rem 1rem;
+      border-radius: 999px;
+      font-size: .85rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 2.2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      top: -80px;
+      right: -80px;
+    }
+
+    .quote {
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-line {
+      width: 48px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--green);
+      margin-bottom: 1.4rem;
+    }
+
+    .quote p:first-child {
+      font-size: 1.2rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    /* SERVICES */
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 3rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 2rem;
+      background: white;
+      transition: .2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--green);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: var(--green-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: .9rem;
+      font-weight: 650;
+    }
+
+    .tags {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      margin-top: 1.3rem;
+    }
+
+    .tag {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: .35rem .8rem;
+      font-size: .74rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* DIFFERENCE */
+
+    .difference {
+      background: var(--green-soft);
+      border-radius: 34px;
+      padding: 3rem;
+      border-left: 6px solid var(--green);
+    }
+
+    .difference strong {
+      color: var(--text);
+    }
+
+    .difference h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    /* PROCESS */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .step {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1.8rem;
+      background: white;
+    }
+
+    .step-number {
+      color: var(--green);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      margin-bottom: 1rem;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: var(--text);
+      color: white;
+      border-radius: 36px;
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+
+    .cta h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,.75);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: .85rem;
+    }
+
+    @media(max-width: 1024px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+    }
+
+    @media(max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .difference,
+      .cta,
+      .hero-card {
+        padding: 2rem;
+      }
+    }
+  </style></head>
+<body>  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <div class="logo-mark">H</div>
+          <div class="logo-text">
+            <h3><span>H</span>Manuel</h3>
+            <p>Administración e Innovación Digital</p>
+          </div>
+        </div><div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#metodo">Método</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+</div>
+
+  </div>  <main><section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="eyebrow">Antes de crecer, hay que ordenar</div>
+
+      <h1>
+        Estructura real para negocios que quieren crecer sin caos.
+      </h1>
+
+      <p class="hero-lead">
+        HManuel ayuda a emprendedores y PyMEs a organizar operaciones, documentar procesos y adoptar herramientas digitales útiles sin perder claridad ni control.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Agendar diagnóstico</a>
+        <a href="#servicios" class="btn btn-secondary">Explorar servicios</a>
+      </div>
+
+      <div class="hero-points">
+        <div class="point">✓ Administración práctica</div>
+        <div class="point">✓ Digitalización humana</div>
+        <div class="point">✓ Procesos y estructura</div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="quote">
+        <div class="quote-line"></div>
+
+        <p>
+          “El marketing puede llamar la atención. Pero la estructura es lo que mantiene vivo un negocio.”
+        </p>
+
+        <p>
+          HManuel trabaja donde realmente nacen los problemas: procesos desordenados, operaciones improvisadas y crecimiento sin control.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="servicios" class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">Servicios estratégicos</div>
+      <h2>Modernización empresarial con fundamentos sólidos.</h2>
+      <p>
+        No implementamos tecnología por moda. Diseñamos sistemas simples, funcionales y sostenibles para negocios reales.
+      </p>
+    </div>
+
+    <div class="grid grid-2">
+
+      <article class="card">
+        <div class="card-icon">📋</div>
+        <h3>Organización Administrativa</h3>
+        <p>
+          Procesos, controles, estructura operativa y herramientas de gestión para negocios que necesitan orden antes de escalar.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Procesos</span>
+          <span class="tag">Control financiero</span>
+          <span class="tag">Sheets</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Emprendimiento Digital</h3>
+        <p>
+          Acompañamiento para construir una operación digital clara, accesible y funcional desde el inicio.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Google Business</span>
+          <span class="tag">WhatsApp Business</span>
+          <span class="tag">Catálogo digital</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🛒</div>
+        <h3>Comercio Electrónico</h3>
+        <p>
+          Migración gradual hacia ecommerce con foco operativo, control de pedidos y experiencia clara.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Tienda online</span>
+          <span class="tag">Pagos digitales</span>
+          <span class="tag">Catálogo</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Automatización Inteligente</h3>
+        <p>
+          Automatizaciones simples y herramientas digitales prácticas para reducir fricción operativa.
+        </p>
+
+        <div class="tags">
+          <span class="tag">IA práctica</span>
+          <span class="tag">Formularios</span>
+          <span class="tag">Automatización</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="filosofia" class="section">
+  <div class="container">
+
+    <div class="difference">
+      <div class="eyebrow">La diferencia</div>
+
+      <h3>
+        No somos una agencia de marketing.
+      </h3>
+
+      <p>
+        Mientras otros prometen crecimiento rápido, HManuel trabaja en lo que realmente sostiene una empresa: <strong>estructura, procesos, control administrativo y claridad operativa.</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="metodo" class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">Método HManuel</div>
+      <h2>Transformación digital con orden.</h2>
+      <p>
+        Cada etapa está diseñada para construir estabilidad antes de complejidad.
+      </p>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="step">
+        <div class="step-number">01 · DIAGNÓSTICO</div>
+        <h3>Entender el negocio</h3>
+        <p>Detectamos desorden operativo, fugas y procesos improvisados.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">02 · ESTRUCTURA</div>
+        <h3>Crear orden</h3>
+        <p>Documentamos procesos y organizamos responsabilidades.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">03 · DIGITALIZACIÓN</div>
+        <h3>Implementar herramientas</h3>
+        <p>Integramos soluciones simples y útiles para operar mejor.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">04 · ESCALABILIDAD</div>
+        <h3>Preparar crecimiento</h3>
+        <p>Construimos bases sostenibles para ecommerce y expansión.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="grid grid-3">
+
+      <div class="card">
+        <h3>Administración tradicional</h3>
+        <p>
+          Porque los fundamentos administrativos siguen siendo necesarios en cualquier negocio moderno.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Innovación útil</h3>
+        <p>
+          La tecnología debe facilitar el trabajo, no convertirlo en algo más complejo.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Digitalización humana</h3>
+        <p>
+          Traducimos herramientas digitales a lenguaje claro y operativo para personas reales.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="contacto" class="section">
+  <div class="container">
+
+    <div class="cta">
+
+      <div class="eyebrow" style="color:#86efc8;">Empezar con claridad</div>
+
+      <h2>
+        Deja de construir sobre hielo.
+      </h2>
+
+      <p>
+        Agenda un diagnóstico inicial y descubre qué necesita realmente tu negocio para crecer con orden.
+      </p>
+
+      <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+        <a href="https://wa.me/527447986498" class="btn btn-primary">
+          WhatsApp · 744 798 6498
+        </a>
+
+        <a href="mailto:hmanuelinnovaciondigital@gmail.com" class="btn btn-secondary">
+          Enviar correo
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="container">
+      <p>
+        © 2026 HManuel · Administración e Innovación Digital
+      </p><p style="margin-top:.5rem;">
+    “Antes de crecer, hay que ordenar.”
+  </p>
+</div>
+
+  </footer></body>
+</html>
